@@ -348,6 +348,41 @@
     .qr-alts{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  /* ---------- content pages: science / dosage / journeys ---------- */
+  .page-hero{position:relative;overflow:hidden;color:var(--bone);border-bottom:1px solid var(--line)}
+  .page-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+  .page-hero.sci .bg{background-image:var(--img-botanical)}
+  .page-hero.dos .bg{background-image:var(--img-hero);background-position:center 40%}
+  .page-hero.jrn .bg{background-image:var(--img-ritual)}
+  .page-hero .scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,7,15,.93),rgba(13,7,15,.52))}
+  .page-hero .inner{position:relative;z-index:2;max-width:780px;margin:0 auto;text-align:center;padding:74px 26px 60px}
+  .page-hero .eyebrow{color:var(--gold-soft)}
+  .page-hero h1{color:#fff;font-size:clamp(2.1rem,4.4vw,3.2rem);margin-top:14px;line-height:1.06}
+  .page-hero p{color:rgba(255,255,255,.82);margin-top:16px;font-size:1.05rem}
+  .page-body{padding:66px 0 92px}
+  .page-lead{max-width:760px;margin:0 auto;font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);line-height:1.4;text-align:center;color:var(--ink)}
+  .page-lead b{color:var(--plum);font-weight:600}
+  .section-title{text-align:center;margin:60px 0 4px;font-size:clamp(1.5rem,2.8vw,2rem)}
+  .refrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .refrow span{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);padding:9px 15px;border-radius:30px}
+  .refrow b{color:var(--gold)}
+  .doses{max-width:860px;margin:36px auto 0;border-top:1px solid var(--line)}
+  .dose{display:grid;grid-template-columns:190px 1fr;gap:26px;padding:22px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+  .dose .lvl{font-family:var(--serif);font-size:1.22rem;color:var(--ink)}
+  .dose .lvl .amt{display:block;font-family:var(--mono);font-size:.74rem;color:var(--gold);letter-spacing:.02em;margin-top:6px}
+  .dose .desc{color:var(--ink-soft);font-size:.97rem}
+  .guidebox{max-width:860px;margin:40px auto 0;background:var(--gold-tint);border:1px solid color-mix(in srgb,var(--gold) 34%,transparent);padding:24px 26px}
+  .guidebox h4{font-family:var(--sans);font-weight:700;letter-spacing:.02em;font-size:.95rem;color:var(--ink);margin-bottom:10px}
+  .guidebox p{color:var(--ink-soft);font-size:.92rem}
+  .twocol{max-width:900px;margin:40px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .infocard{background:var(--paper);border:1px solid var(--line);padding:26px}
+  .infocard .ic{width:38px;height:38px;border-radius:9px;background:var(--gold-tint);border:1px solid color-mix(in srgb,var(--gold) 34%,transparent);display:grid;place-items:center;color:var(--gold);font-family:var(--serif);font-size:1.1rem;margin-bottom:14px}
+  .infocard h3{font-size:1.2rem;margin-bottom:8px}
+  .infocard p{color:var(--ink-soft);font-size:.93rem}
+  .page-cta{text-align:center;margin-top:54px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .safety-note{max-width:760px;margin:44px auto 0;border:1px dashed var(--line-2);padding:20px 24px;text-align:center;color:var(--ink-faint);font-size:.85rem;line-height:1.6}
+  .safety-note b{color:var(--ink-soft)}
+  @media (max-width:640px){.twocol{grid-template-columns:1fr}.dose{grid-template-columns:1fr;gap:6px}}
 </style>
 
 <div class="app" id="app">
@@ -358,11 +393,11 @@
     <div class="wrap">
       <button class="wordmark" data-action="home"><span class="seal">G</span> Golden Path</button>
       <nav class="nav">
-        <button data-action="home">Shop</button>
+        <button data-action="nav-shop">Shop</button>
         <button class="hot" data-action="quiz-start">Find your formula</button>
-        <button data-action="home">The Science</button>
-        <button data-action="home">Dosage Guide</button>
-        <button data-action="home">Journeys</button>
+        <button data-action="nav-science">The Science</button>
+        <button data-action="nav-dosage">Dosage Guide</button>
+        <button data-action="nav-journeys">Journeys</button>
       </nav>
       <div class="header-sp"></div>
       <button class="cart-btn" data-action="open-cart">Bag <span class="count" id="cartCount">0</span></button>
@@ -506,6 +541,65 @@
     </div>
   </section>
 
+    <!-- ================= THE SCIENCE ================= -->
+  <section class="view" id="view-science">
+    <div class="page-hero sci"><div class="bg"></div><div class="scrim"></div><div class="grain"></div>
+      <div class="inner"><div class="eyebrow">The Golden Path</div><h1>Proof, not promises.</h1>
+        <p>In a category full of vague claims, we would rather show our work: how every formula is made, measured, and verified.</p></div>
+    </div>
+    <div class="page-body"><div class="wrap">
+      <p class="page-lead">“Natural” is not a safety standard. <b>A lab result is.</b></p>
+      <div class="pillars" style="margin-top:52px">
+        <div class="pillar"><div class="pn">01</div><h3>Third-party lab tested</h3><p>Every batch gets an independent certificate of analysis for potency and purity before it ever ships.</p></div>
+        <div class="pillar"><div class="pn">02</div><h3>Dosed to the milligram</h3><p>Each chew and capsule is a known, consistent amount. Precision is the whole point of a protocol.</p></div>
+        <div class="pillar"><div class="pn">03</div><h3>Documented sourcing</h3><p>Where it is grown and how it is handled, tracked end to end. No mystery blends, no filler.</p></div>
+      </div>
+      <h2 class="section-title">How the dose works</h2>
+      <div class="mech" style="max-width:900px;margin-left:auto;margin-right:auto">
+        <div class="m"><h4>Sub-perceptual by design</h4><p>A micro dose sits below a noticeable trip. It is meant to support your ordinary day, focus, mood, presence, not alter it. Start low and learn your own tolerance.</p></div>
+        <div class="m"><h4>Set &amp; setting</h4><p>Where you are and how you feel shape the experience as much as the dose. Set an intention before, and give yourself room to integrate after. The Dosage Guide walks through both.</p></div>
+      </div>
+      <div class="safety-note"><b>An honest note.</b> Golden Path does not make medical claims and is not a treatment for any condition. Start low, go slow, and talk to your healthcare provider before use, especially if you take medication, or are pregnant or nursing.</div>
+      <div class="page-cta"><button class="btn btn-gold" data-action="nav-dosage">See the dosage guide</button><button class="btn btn-outline" data-action="nav-shop">Shop the range</button></div>
+    </div></div>
+  </section>
+
+  <!-- ================= DOSAGE GUIDE ================= -->
+  <section class="view" id="view-dosage">
+    <div class="page-hero dos"><div class="bg"></div><div class="scrim"></div><div class="grain"></div>
+      <div class="inner"><div class="eyebrow">Find your level</div><h1>Choose your path.</h1>
+        <p>Each path is a different depth. Start at the top, and move down only when you are ready.</p></div>
+    </div>
+    <div class="page-body"><div class="wrap">
+      <div class="refrow"><span>Micro chews &amp; Golden Bar · <b>0.125 g</b> per piece</span><span>Macro capsules · <b>0.5 g</b> per capsule</span></div>
+      <div class="doses">
+        <div class="dose"><div class="lvl">Micro<span class="amt">1–2 gummies · every 2–3 days</span></div><div class="desc">Sub-perceptual. For everyday clarity, focus, and an even mood. Nothing you would call a trip.</div></div>
+        <div class="dose"><div class="lvl">Heart<span class="amt">1 capsule · 0.5 g</span></div><div class="desc">Mind and heart coherence. A gentle opening, still grounded in your day.</div></div>
+        <div class="dose"><div class="lvl">Middle<span class="amt">4 capsules · 2 g  ·  or 8–12 gummies</span></div><div class="desc">Deep introspection and a soft shift in perception. Often described as similar to dreaming.</div></div>
+        <div class="dose"><div class="lvl">Journey<span class="amt">16–20 gummies · 2–2.5 g</span></div><div class="desc">A deep experience. Clear your calendar, prepare your space, and a guide or sitter is wise.</div></div>
+        <div class="dose"><div class="lvl">Sacred<span class="amt">8 capsules · 4 g</span></div><div class="desc">Very deep. Prepare your space and use a guide or sitter. Not a place to start.</div></div>
+      </div>
+      <div class="guidebox"><h4>Before you begin</h4><p>Wait 30 to 60 minutes to feel the effects before taking any more. Set an intention beforehand, and give yourself time to integrate afterward. Always start with the smallest dose to learn your tolerance. Do not drive or operate machinery. Consult your healthcare provider before consuming Golden Path products.</p></div>
+      <div class="page-cta"><button class="btn btn-gold" data-action="nav-shop">Shop micro &amp; macro</button><button class="btn btn-outline" data-action="nav-journeys">Talk to a specialist</button></div>
+    </div></div>
+  </section>
+
+  <!-- ================= JOURNEYS ================= -->
+  <section class="view" id="view-journeys">
+    <div class="page-hero jrn"><div class="bg"></div><div class="scrim"></div><div class="grain"></div>
+      <div class="inner"><div class="eyebrow">Guided, not alone</div><h1>The deeper paths are better with support.</h1>
+        <p>For the middle, journey, and sacred paths, a trained hand makes all the difference. Golden Path connects you with integration specialists and vetted retreats.</p></div>
+    </div>
+    <div class="page-body"><div class="wrap">
+      <div class="twocol">
+        <div class="infocard"><div class="ic">❧</div><h3>Integration specialists</h3><p>Trained specialists who help you prepare beforehand and make sense of the experience afterward, one-on-one or in a small group. Your first consultation is free.</p></div>
+        <div class="infocard"><div class="ic">◎</div><h3>Aurum Retreats</h3><p>When you are ready to go deeper, join a safe, guided journey in a space that is held for you, with people who do this every day.</p></div>
+      </div>
+      <div class="safety-note">Integration support is about preparation, safety, and meaning, not medical or psychological treatment. If you are working through something serious, please also reach out to a licensed professional.</div>
+      <div class="page-cta"><a class="btn btn-gold" href="mailto:hello@goldenpathlyfe.com?subject=Consultation%20request">Book a consultation</a><button class="btn btn-outline" data-action="nav-dosage">Back to the dosage guide</button></div>
+    </div></div>
+  </section>
+
   <!-- ================= PRODUCT ================= -->
   <section class="view" id="view-product">
     <div class="pdp">
@@ -592,9 +686,9 @@
       <div class="foot-top">
         <button class="wordmark" data-action="home"><span class="seal">G</span> Golden Path</button>
         <div class="foot-links">
-          <div class="foot-col"><h5>Shop</h5><a data-action="home">Micro chews</a><a data-action="home">Macro capsules</a><a data-action="quiz-start">Find your formula</a><a data-action="home">Sample packs</a></div>
-          <div class="foot-col"><h5>Learn</h5><a data-action="home">The science</a><a data-action="home">Dosage guide</a><a data-action="home">Integration</a><a data-action="home">Journeys</a></div>
-          <div class="foot-col"><h5>Golden Path</h5><a data-action="home">About</a><a data-action="home">Lab results</a><a data-action="home">Contact</a></div>
+          <div class="foot-col"><h5>Shop</h5><a data-action="nav-shop">Micro chews</a><a data-action="nav-shop">Macro capsules</a><a data-action="quiz-start">Find your formula</a><a data-action="nav-shop">Sample packs</a></div>
+          <div class="foot-col"><h5>Learn</h5><a data-action="nav-science">The science</a><a data-action="nav-dosage">Dosage guide</a><a data-action="nav-journeys">Integration</a><a data-action="nav-journeys">Journeys</a></div>
+          <div class="foot-col"><h5>Golden Path</h5><a data-action="home">About</a><a data-action="nav-science">Lab results</a><a data-action="home">Contact</a></div>
         </div>
       </div>
       <div class="foot-bottom">
@@ -801,6 +895,10 @@
     var el=e.target.closest('[data-action]'); if(!el) return;
     var a=el.getAttribute('data-action');
     if(a==='home'){go('home');}
+    else if(a==='nav-shop'){go('home');setTimeout(function(){scrollTo('shopAnchor');},60);}
+    else if(a==='nav-science'){go('science');}
+    else if(a==='nav-dosage'){go('dosage');}
+    else if(a==='nav-journeys'){go('journeys');}
     else if(a==='open-cart'){openCart();}
     else if(a==='close-cart'){closeCart();}
     else if(a==='product'){openProduct(el.getAttribute('data-id'));}
